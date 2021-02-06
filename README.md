@@ -1,6 +1,9 @@
 # React Tic Tac Toe
 A game developed while I was learning React.
 
+# See it live
+https://tatirajurishabh.github.io/react-tictactoe/
+
 # How to run?
 - `npm install`
 - `npm start`
