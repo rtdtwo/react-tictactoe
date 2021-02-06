@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
-import './index.css'
-import Square from './components/Square'
-import { computeWinner, computeGameOver } from './utils/helpers'
+import './index.css';
+import Square from './components/Square';
+import { computeWinner, computeGameOver } from './utils/helpers';
+import finishSound from './assets/finish.mp3';
+import winnerSound from './assets/winner.mp3';
+
+const finishAudio = new Audio(finishSound);
+const winnerAudio = new Audio(winnerSound);
 
 class App extends Component {
     state = {
@@ -30,9 +35,11 @@ class App extends Component {
             // Winner available
             const winnerPlayer = (winner === 1) ? 'X' : 'O';
             title = 'Player ' + winnerPlayer + ' wins';
-            gameOver = true
+            gameOver = true;
+            winnerAudio.play();
         } else if (gameOver) {
             title = 'Game Over';
+            finishAudio.play();
         }
 
         this.setState({ gameOver: gameOver, title: title });
